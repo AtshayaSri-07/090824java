@@ -1,0 +1,257 @@
+//linear search
+import java.io.*;
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner size = new Scanner(System.in);
+	    int s=size.nextInt();
+
+	    int[] arr=new int[s];
+	    for(int i=0;i<s;i++){
+	        arr[i]=size.nextInt();
+	    }
+	    Scanner search=new Scanner(System.in);
+	    int target=search.nextInt();
+	    boolean c=false;
+	    for(int i=0;i<s;i++){
+	        if(target==arr[i]){
+	            c=true;
+	        }
+
+	    }
+	    if(c==true){
+	        System.out.printf("Element is found!");
+	    }
+	    else{
+	        System.out.printf("Element is not found :(");
+	    }
+	    }
+}
+__________________________________________________________________
+
+//sum of the array
+import java.io.*;
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner size = new Scanner(System.in);
+	    int s=size.nextInt();
+
+	    int[] arr=new int[s];
+	    for(int i=0;i<s;i++){
+	        arr[i]=size.nextInt();
+	    }
+	    int sum=0;
+	    for(int i=0;i<s;i++){
+         sum+=arr[i];
+
+
+	    }
+     System.out.printf("Sum"+sum);
+	    }
+}
+_______________________________________________________________________
+
+  //linear search string
+import java.io.*;
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner size = new Scanner(System.in);
+	    int s=size.nextInt();
+
+	    String[] arr=new String[s];
+	    for(int i=0;i<s;i++){
+	        arr[i]=size.next();
+	    }
+	    Scanner search=new Scanner(System.in);
+	    String target=search.next();
+	    boolean c=false;
+	    for(int i=0;i<s;i++){
+	       if(arr[i].equals(target)){
+	            c=true;
+	        }
+
+	    }
+	    if(c==true){
+	        System.out.printf("String is found!");
+	    }
+	    else{
+	        System.out.printf("String is not found :(");
+	    }
+	    }
+}
+
+___________________________________________________________________________________
+
+  import java.util.*;
+import java.io.*;
+public class New{
+    public static void main(String[] args){
+        Scanner input=new Scanner(System.in);
+        int size=input.nextInt();
+        String[] Name=new String[size];
+        for(int i=0;i<size;i++){
+	        Name[i]=input.next();
+        }
+        int c=size;
+        for(int i=0;i<size;i++){
+            String temp=Name[i];
+            Name[i]=Name[c-1];
+            Name[c-1]=temp;
+            c--;
+
+        }
+        System.out.println(Arrays.toString(Name));
+
+    }
+}
+__________________________________________________________________________________
+  //array sort and sum
+
+import java.io.*;
+import java.util.*;
+public class Main
+{
+    public static void calc(int[] arr,int k,int E){
+        if(arr.length==0){
+            System.out.println("Empty array");
+        }
+        else{
+            Arrays.sort(arr);
+            int sum=0;
+            for(int i=0;i<=k;i++){
+                sum+=arr[i];
+
+            }
+            if(sum>E){
+                System.out.println("Good");
+            }
+            else if(sum==E){
+                System.out.println("Average");
+            }
+            else{
+                System.out.println("Bad");
+            }
+        }
+
+
+    }
+    public static void main(String[] args){
+        Scanner size = new Scanner(System.in);
+	    int s=size.nextInt();
+
+	    int[] arr=new int[s];
+	    for(int i=0;i<s;i++){
+	        arr[i]=size.nextInt();
+
+	    }
+	    int K=size.nextInt();
+	    int E=size.nextInt();
+	    calc(arr,K,E);
+    }
+
+}
+_______________________________________________________________
+
+  import java.io.*;
+import java.util.*;
+public class Bubblesort{
+    //defining a bub ble_sort function
+    static int[] bubble_sort(int[] arr,int size){
+        for(int i=0;i<size;i++){
+            for(int j=0;j<size-1;j++){
+                //to check the elements and swap if the condition is true
+                if(arr[j]>arr[j+1]){
+                    int temp=arr[j];
+                    arr[j]=arr[j+1];
+                    arr[j+1]=temp;
+                }
+            }
+        }
+        //return the array elements to the function call in main function
+        return (arr);
+        
+    }
+    public static void main(String[] args){
+        Scanner size = new Scanner(System.in);
+	    int s=size.nextInt();
+
+	    int[] arr=new int[s];
+	    for(int i=0;i<s;i++){
+	        arr[i]=size.nextInt();
+
+        }
+    //function call
+    bubble_sort(arr,s);
+    //print the sorted array
+    System.out.println(Arrays.toString(arr));
+}
+}
+______________________________________________________________________
+import java.io.*;
+import java.util.*;
+public class BinarySearch{
+    public static void binary_search(int[] arr,int beg,int end,int mid,int target){
+        //check the starting and end value condition
+        while(beg<=end){
+            //best case target found at first search
+            if(arr[mid]==target){
+                System.out.print("Target Found!!");
+                break;
+            }
+            else if(arr[mid]<target){
+                beg=mid+1;
+                mid=(beg+end)/2;
+            } 
+            else{
+                end=mid-1;
+                mid=(beg+mid)/2;
+            }
+        }
+        //worst case target not found
+        if(beg>end){
+            System.out.print("Target not found :(");
+        }
+
+    }
+    //sort the given array
+    static int[] bubble_sort(int[] arr,int size){
+        for(int i=0;i<size;i++){
+            for(int j=0;j<size-i-1;j++){
+                //to check the elements and swap if the condition is true
+                if(arr[j]>arr[j+1]){
+                    int temp=arr[j];
+                    arr[j]=arr[j+1];
+                    arr[j+1]=temp;
+                }
+            }
+        }
+        //return the array elements to the function call in main function
+        return (arr);
+    }
+    public static void main(String[] args){
+        Scanner size = new Scanner(System.in);
+	    int s=size.nextInt();
+
+	    int[] arr=new int[s];
+	    for(int i=0;i<s;i++){
+	        arr[i]=size.nextInt();
+	        
+	    }
+	   
+	    Scanner t=new Scanner(System.in);
+	    int target=t.nextInt();
+      //initialize the beginning,ending,and midle values
+	    int beg=0;
+	    int end=s-1;
+	    int mid=(beg+end)/2;
+      //function call for sort and search 
+	    bubble_sort(arr,s);
+	    binary_search(arr,beg,end,mid,target);
+	    
+    }
+}
